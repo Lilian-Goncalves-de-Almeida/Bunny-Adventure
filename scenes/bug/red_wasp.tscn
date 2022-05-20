@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/bug/bug.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/management/death.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/management/hit.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/enemy/red_wasp.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 370.034
+
+[node name="RedWasp" instance=ExtResource( 1 )]
+hit_effect = ExtResource( 3 )
+death_effect = ExtResource( 2 )
+speed = 55
+damage = 1
+health = 3
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 1, 1 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+autoplay = "idle"
+
+[node name="CollisionShape2D" parent="DetectionArea" index="0"]
+shape = SubResource( 2 )

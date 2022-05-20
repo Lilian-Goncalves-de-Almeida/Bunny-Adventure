@@ -1,0 +1,105 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/font/Kenney Pixel.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/management/life_bar.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[node name="LifeBar" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Life" type="ColorRect" parent="."]
+margin_left = 26.0
+margin_top = 10.0
+margin_right = 73.0
+margin_bottom = 19.0
+color = Color( 0, 0, 0, 0.509804 )
+
+[node name="Label" type="Label" parent="Life"]
+margin_left = -16.0
+margin_top = -3.0
+margin_bottom = 11.0
+rect_pivot_offset = Vector2( 4, 11 )
+custom_fonts/font = SubResource( 1 )
+text = "HP"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Life"]
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 46.0
+margin_bottom = 8.0
+custom_constants/separation = 2
+
+[node name="Bar1" type="ColorRect" parent="Life/HBoxContainer"]
+margin_right = 7.0
+margin_bottom = 7.0
+rect_min_size = Vector2( 7, 7 )
+rect_pivot_offset = Vector2( -66, 0 )
+color = Color( 0.862745, 0.203922, 0.223529, 1 )
+
+[node name="Bar2" type="ColorRect" parent="Life/HBoxContainer"]
+margin_left = 9.0
+margin_right = 16.0
+margin_bottom = 7.0
+rect_min_size = Vector2( 7, 7 )
+rect_pivot_offset = Vector2( -66, 0 )
+color = Color( 0.862745, 0.203922, 0.223529, 1 )
+
+[node name="Bar3" type="ColorRect" parent="Life/HBoxContainer"]
+margin_left = 18.0
+margin_right = 25.0
+margin_bottom = 7.0
+rect_min_size = Vector2( 7, 7 )
+rect_pivot_offset = Vector2( -66, 0 )
+color = Color( 0.862745, 0.203922, 0.223529, 1 )
+
+[node name="Bar4" type="ColorRect" parent="Life/HBoxContainer"]
+margin_left = 27.0
+margin_right = 34.0
+margin_bottom = 7.0
+rect_min_size = Vector2( 7, 7 )
+rect_pivot_offset = Vector2( -66, 0 )
+color = Color( 0.862745, 0.203922, 0.223529, 1 )
+
+[node name="Bar5" type="ColorRect" parent="Life/HBoxContainer"]
+margin_left = 36.0
+margin_right = 43.0
+margin_bottom = 7.0
+rect_min_size = Vector2( 7, 7 )
+rect_pivot_offset = Vector2( -66, 0 )
+color = Color( 0.862745, 0.203922, 0.223529, 1 )
+
+[node name="Ponts" type="Label" parent="."]
+margin_left = 10.0
+margin_top = 20.0
+margin_right = 50.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 1 )
+text = "Pontos"
+align = 1
+valign = 1
+
+[node name="Pontuation" type="Label" parent="."]
+margin_left = 51.0
+margin_top = 20.0
+margin_right = 67.0
+margin_bottom = 34.0
+rect_pivot_offset = Vector2( 4, 11 )
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 1
+valign = 1
+
+[connection signal="visibility_changed" from="Life/HBoxContainer/Bar1" to="." method="on_Bars_visibility_changed"]
+[connection signal="visibility_changed" from="Life/HBoxContainer/Bar2" to="." method="on_Bars_visibility_changed"]
+[connection signal="visibility_changed" from="Life/HBoxContainer/Bar3" to="." method="on_Bars_visibility_changed"]
+[connection signal="visibility_changed" from="Life/HBoxContainer/Bar4" to="." method="on_Bars_visibility_changed"]
+[connection signal="visibility_changed" from="Life/HBoxContainer/Bar5" to="." method="on_Bars_visibility_changed"]
